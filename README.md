@@ -14,8 +14,8 @@ Discussions & Tricks to improve Linux compatibility to the Lenovo Yoga Slim 7 (1
 | Display | 14" 2944x1840@90 OLED | ✅ Working OoB |
 | WiFi | Intel AX200 | ✅ Working OoB |
 | Bluetooth | Intel AX200 | ✅ Working OoB |
-| Sound | Realtek ALC287 | ✅ Working with **[custom firmware](##Sound)** |
-| Touchpad | Elan | ✅ Working OoB |
+| Sound (Subwoofer) | TI 2781  | ✅ Working with **[custom firmware](##Sound)** |
+| Touchpad | Unknown | ✅ Working OoB |
 | Camera | 720p | ✅ Working OoB |
 | Suspend | - | ✅ Working with injected SSDT |
 | Hibernate | - | ❌ Broken |
