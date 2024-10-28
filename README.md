@@ -5,6 +5,7 @@ Discussions & Tricks to improve Linux compatibility to the Lenovo Yoga Slim 7 (1
 ![sysinfo](./.github/sysinfo.png)
 
 ## Compatibility
+
 | Component | Description | Status |
 | --- | --- | --- |
 | CPU | AMD Ryzen 7 7840S | ✅ Working OoB |
@@ -21,6 +22,8 @@ Discussions & Tricks to improve Linux compatibility to the Lenovo Yoga Slim 7 (1
 | Hibernate | - | ❌ Broken |
 | Secure Boot | - | ⚠️ See [Secure Boot](#secure-boot) |
 | IR Camera auth | 720p | ⚠️ See [Howdy](https://github.com/boltgolt/howdy)
+
+Overall, using this laptop with Linux is really good experience but there is some tweaks to do to get it working properly after installation.
 
 ## Things to know
 
@@ -87,7 +90,7 @@ See [this repo](https://github.com/darinpp/yoga-slim-7).
 You can use `alsamixer` to adjust the sound levels of the subwoofers and the main speakers (DAC 1 & 2).
 ![alsamixer](./.github/alsamixer.png)
 
-Sound will not be as good as on Windows (the 4 subwoofers are not calibrated precisely and Dolby Atmos spacialization effect is missing.)
+Sound will not be as good as on Windows (the 4 subwoofers are not calibrated precisely and Dolby Atmos spacial effect is missing.)
 
 However, you can mitigate this with [Easy Effects](https://github.com/wwmm/easyeffects).
 There is a preset that I made to improve the sound in the `easyeffect` folder (I'm not an expert so if you want to make a better one, do not forget to share it :) )
@@ -103,3 +106,4 @@ Depending on your power profile the GPU will crash and freeze your entire system
 Also, the GPU seems to have rare buffer issues related to power profiles (same here, using "Performance Mode" seems to have less artifacts than other modes).
 
 ### Dirty script to switch power profiles
+TODO
