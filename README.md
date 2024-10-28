@@ -8,7 +8,8 @@ Discussions & Tricks to improve Linux compatibility to the Lenovo Yoga Slim 7 (1
 - I'm not the maintener of the custom firmware / ACPI table files, if you have any problems related with them, open issues on their related repos. 
 
 # Sleep
-Sleep will not work on fresh installation. You will need to inject a custom ACPI table to make it work and depending on your distro, it can be tricky to inject.
+Sleep will not work on fresh installation. See [this issue on GitLab](https://gitlab.freedesktop.org/drm/amd/-/issues/2812).
+You will need to inject a custom ACPI table to make it work and depending on your distro, it can be tricky to inject.
 
 ## Hibernation
 Hibernation is still quite buggy on this system, see [this issue on GitLab](https://gitlab.freedesktop.org/drm/amd/-/issues/3047).
