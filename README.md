@@ -29,6 +29,8 @@ AllowHybridSleep=no
 
 # Sound
 See [this repo](https://github.com/darinpp/yoga-slim-7).
+Sound is not as good as on Windows, the 4 subwoofers are not calibrated precisely and Dolby Atmos spacialization effect is missing.
+This can be partially mitigated with [Easyeffects](https://github.com/wwmm/easyeffects).
 
 # GPU
 The GPU seems to have rare buffer issues related to power profiles.
