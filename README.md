@@ -24,8 +24,8 @@ Discussions & Tricks to improve Linux compatibility to the Lenovo Yoga Slim 7 (1
 
 ## Things to know
 
-- All commands have been tested on an updated Arch Linux installation the 28/10/2024.
-- Most of the issues are related to poorly written BIOS by Lenovo. Lenovo seems to have dropped support for this device as the latest BIOS version is from 15/12/2023.
+- Everything has been tested on an Arch Linux installation, the 28/10/2024, with BIOS `M6CN38WW` (15/12/2023).
+- Most of the issues are related to poorly written BIOS by Lenovo. Lenovo seems to have dropped support for this device as the latest [BIOS version is dated 15/12/2023](https://pcsupport.lenovo.com/fr/fr/products/laptops-and-netbooks/yoga-series/yoga-slim-7-14apu8/downloads/driver-list/component?name=BIOS&id=5AC6A815-321D-440E-8833-B07A93E0428C).
 - Feel free to open issues with your own Linux experience with this laptop.
 - I'm not the maintener of the custom firmware / injected SSDT, if you have any problems related with them, open issues on their related repos.
 
