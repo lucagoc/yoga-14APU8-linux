@@ -97,7 +97,7 @@ There is a preset that I made to improve the sound in the `easyeffect` folder (I
 
 ## Power profiles
 
-On an Arch system do not forget to install `power-profiles-daemon` to get control on power profiles.
+On an Arch system do not forget to install `power-profiles-daemon` to get control over power profiles.
 
 ## GPU
 
