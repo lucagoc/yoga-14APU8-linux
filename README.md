@@ -12,8 +12,8 @@ Discussions & Tricks to improve Linux compatibility to the Lenovo Yoga Slim 7 (1
 | Memory | 16-32GB LPPDR5X | ✅ Working OoB |
 | Storage | 512GB-1TB NVMe SSD | ✅ Working OoB |
 | Display | 14" 2944x1840@90 OLED | ✅ Working OoB |
-| WiFi | Intel AX200 | ✅ Working OoB |
-| Bluetooth | Intel AX200 | ✅ Working OoB |
+| WiFi | RTL8852CE | ✅ Working OoB |
+| Bluetooth | RTL8852CU | ✅ Working OoB |
 | Sound (Subwoofer) | TI 2781  | ✅ Working with **[custom firmware](##Sound)** |
 | Touchpad | Unknown | ✅ Working OoB |
 | Camera | 720p | ✅ Working OoB |
@@ -48,6 +48,7 @@ HOOKS=(... acpi_override)
 ```
 
 then rebuild the initramfs with `sudo mkinitcpio -P`.
+Reboot.
 
 ### Freeze on wake up
 
