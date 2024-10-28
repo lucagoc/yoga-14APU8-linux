@@ -1,0 +1,3 @@
+[submodule "sound_firmware/yoga-slim-7"]
+	path = sound_firmware/yoga-slim-7
+	url = https://github.com/darinpp/yoga-slim-7
