@@ -15,7 +15,7 @@ Discussions & Tricks to improve Linux compatibility to the Lenovo Yoga Slim 7 (1
 | Display | 14" 2944x1840@90 OLED | ✅ Working OoB |
 | WiFi | RTL8852CE | ✅ Working OoB |
 | Bluetooth | RTL8852CU | ✅ Working OoB |
-| Sound (Subwoofer) | TI 2781  | ✅ Working with **[custom firmware](##Sound)** |
+| Sound (Subwoofer) | TI 2781  | ✅ Working with **[custom firmware](#sound)** |
 | Touchpad | Unknown | ✅ Working OoB |
 | Camera | 720p | ✅ Working OoB |
 | Suspend | - | ✅ Working with injected SSDT |
@@ -55,7 +55,7 @@ Reboot.
 
 ### Freeze on wake up
 
-This issue is related to the GPU, see **GPU** below.
+This issue is related to the GPU, see [GPU](#gpu) for more informations.
 
 ### Hibernation
 
@@ -101,9 +101,10 @@ On an Arch system do not forget to install `power-profiles-daemon` to get contro
 
 ## GPU
 
-Depending on your power profile the GPU will crash and freeze your entire system when trying to wake up from suspend. It seems that if system is using "Performance Mode" ("Maximum Performance" in BIOS), the issue will not occurred.
+The Radeon 780M is not well supported on Linux, and there is some issues related to power profiles.
+On a fresh installation, the GPU will have some artifacts on the screen when using 90 Hz mode, and can even crash when the system tries to wake up from suspend.
 
-Also, the GPU seems to have rare buffer issues related to power profiles (same here, using "Performance Mode" seems to have less artifacts than other modes).
+This can be bypassed by [setting the performance level to `high`](https://wiki.archlinux.org/title/AMDGPU#Screen_artifacts_and_frequency_problem) but this come with a cost in battery life.
+However, you can use the `power-profiles-daemon` to switch between profiles easily.
+I recommend you to set up a rule to switch the laptop on a `balanced` profile when the laptop wakes up from suspend. You will still have some artifacts on the screen when switching profiles, but at least the system will not crash on wake up.
 
-### Dirty script to switch power profiles
-TODO
