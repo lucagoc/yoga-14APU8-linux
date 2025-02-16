@@ -28,7 +28,7 @@ Overall, using this laptop with Linux is really good experience but there is som
 ## Things to know
 
 - Everything has been tested on an Arch Linux installation, the 28/10/2024, with BIOS `M6CN38WW` (15/12/2023).
-- Most of the issues are related to poorly written BIOS by Lenovo. Lenovo seems to have dropped support for this device as the latest [BIOS version is dated 15/12/2023](https://pcsupport.lenovo.com/fr/fr/products/laptops-and-netbooks/yoga-series/yoga-slim-7-14apu8/downloads/driver-list/component?name=BIOS&id=5AC6A815-321D-440E-8833-B07A93E0428C).
+- Most of the issues are related to poorly written BIOS by Lenovo. A new BIOS update has been released the [10/02/2025](https://pcsupport.lenovo.com/fr/fr/products/laptops-and-netbooks/yoga-series/yoga-slim-7-14apu8/downloads/driver-list/component?name=BIOS&id=5AC6A815-321D-440E-8833-B07A93E0428C) and seems to fix some issues.
 - Feel free to open issues with your own Linux experience with this laptop.
 - I'm not the maintener of the custom firmware / injected SSDT, if you have any problems related with them, open issues on their related repos.
 
@@ -97,14 +97,15 @@ There is a preset that I made to improve the sound in the `easyeffect` folder (I
 
 ## Power profiles
 
-On an Arch system do not forget to install `power-profiles-daemon` to get control over power profiles.
+On an Arch installation do not forget to install `power-profiles-daemon` to get control over power profiles.
 
 ## GPU
 
 The Radeon 780M is not well supported on Linux, and there is some issues related to power profiles.
 On a fresh installation, the GPU will have some artifacts on the screen when using 90 Hz mode, and can even crash when the system tries to wake up from suspend.
 
-This can be bypassed by [setting the performance level to `high`](https://wiki.archlinux.org/title/AMDGPU#Screen_artifacts_and_frequency_problem) but this come with a cost in battery life.
+~~This can be bypassed by [setting the performance level to `high`](https://wiki.archlinux.org/title/AMDGPU#Screen_artifacts_and_frequency_problem) but this come with a cost in battery life.
 However, you can use the `power-profiles-daemon` to switch between profiles easily.
-I recommend you to set up a rule to switch the laptop on a `balanced` profile when the laptop wakes up from suspend. You will still have some artifacts on the screen when switching profiles, but at least the system will not crash on wake up.
+I recommend you to set up a rule to switch the laptop on a `balanced` profile when the laptop wakes up from suspend. You will still have some artifacts on the screen when switching profiles, but at least the system will not crash on wake up.~~
 
+BIOS `M6CN42WW` seems to fix the crash on resume (needs confirmation).
