@@ -2,7 +2,7 @@
 
 How-to guide to get proper Linux support on the Lenovo Yoga Slim 7 (14APU8).
 
-**Last update : 20/03/2025 (BIOS `M6CN44WW`)**
+**Last update : 13/10/2025 (BIOS `M6CN44WW`)**
 
 ![sysinfo](./.github/sysinfo.png)
 
@@ -11,7 +11,7 @@ How-to guide to get proper Linux support on the Lenovo Yoga Slim 7 (14APU8).
 | Component | Description | Status |
 | --- | --- | --- |
 | CPU | AMD Ryzen 7 7840S | ✅ Working OoB |
-| GPU | AMD Radeon 780M | ⚠️ See [GPU](#gpu) |
+| GPU | AMD Radeon 780M | ✅ Working OoB |
 | Memory | 16-32GB LPPDR5X | ✅ Working OoB |
 | Storage | 512GB-1TB NVMe SSD | ✅ Working OoB |
 | Display | 14" 2944x1840@90 OLED | ✅ Working OoB |
@@ -23,7 +23,7 @@ How-to guide to get proper Linux support on the Lenovo Yoga Slim 7 (14APU8).
 | Suspend | - | ✅ Working with injected SSDT |
 | Hibernate | - | ❌ Broken |
 | Secure Boot | - | ⚠️ See [Secure Boot](#secure-boot) |
-| IR Camera auth | 720p | ⚠️ See [Howdy](https://github.com/boltgolt/howdy)
+| IR Camera auth | 720p | ✅ See [Howdy](https://github.com/boltgolt/howdy)
 
 ## Notes
 
@@ -97,14 +97,7 @@ There is a preset that I made to improve the sound in the `easyeffect` folder (I
 
 ## Power profiles
 
-On an Arch installation do not forget to install `power-profiles-daemon` to get control over power profiles.
-
-## GPU
-
-The Radeon 780M has some issues related to power profiles.
-On a fresh installation, the GPU will have some artifacts on the screen using 90 Hz mode.
-This cannot be fixed at the moment without forcing the GPU to run on a higher power profile.
-Alternatively, you can use the 60 Hz mode, which will work without any issues.
+On an Arch installation don't forget to install `power-profiles-daemon` to get control over power profiles.
 
 ## Updating the BIOS without a Windows installation
 
