@@ -10,19 +10,13 @@ Because of Silverblue's immutability, everything will be done using `rpm-ostree`
 
 ## Fixing Suspend
 
-> ⚠️ **WARNING REALLY EXPERIMENTAL** : Please backup your data before proceeding, i'm still developing this and issues may occur, especially with booting the ACPI override.
+Install the ACPI override package to get suspend working properly:
 
 ```bash
-rpm-ostree install RPMs/acpi-yoga-fix-1.0-2.fc43.noarch.rpm
+rpm-ostree install RPMs/acpi-yoga-fix-2.0-1.noarch.rpm
 ```
 
-Reboot your system to apply, then run :
-
-```bash
-sudo bash -x /usr/lib/kernel/install.d/99-acpi-override.install add $(uname -r) /boot /x /y
-```
-
-Reboot again, and check if the ACPI tables have been applied correctly with :
+Reboot your system to apply, then reboot again, and check if the ACPI tables have been applied correctly with :
 
 ```bash
 sudo dmesg | grep ACPI | grep "Table Upgrade"
@@ -34,15 +28,16 @@ You should see something like :
 [    0.003464] ACPI: Table Upgrade: override [SSDT-LENOVO-    UPEP]
 ```
 
-<!-- Reboot your system to apply, then run :
+The script come with a tiny CLI to manage the ACPI override, you can check the available options with :
 
 ```bash
-acpi-yoga-fix
+acpi-yoga-fix help
 ```
 
-Reboot again to apply changes.
-
-> Todo : Fix the acpi-yoga-fix package to remove fix when uninstalling + find a way to automate the `acpi-yoga-fix` command on boot. -->
+By default, the service `acpi-yoga` will check if the ACPI override is applied at each shutdown/reboot, and will re-apply it if not. You can disable this behavior with :
+```bash
+sudo systemctl disable acpi-yoga.service
+```
 
 ## Fixing Sound
 

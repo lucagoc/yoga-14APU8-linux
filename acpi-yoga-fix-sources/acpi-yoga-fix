@@ -1,0 +1,87 @@
+#!/bin/bash
+OVERRIDE_IMG="acpi_override.img"
+BOOT_IMG="/boot/$OVERRIDE_IMG"
+SOURCE_IMG="/usr/lib/acpi/$OVERRIDE_IMG"
+
+apply_patch() {
+    if [ ! -f "$BOOT_IMG" ]; then
+        if [ -f "$SOURCE_IMG" ]; then
+            mkdir -p /boot
+            cp -f "$SOURCE_IMG" "$BOOT_IMG" || {
+                echo "Failed to copy $SOURCE_IMG to $BOOT_IMG"
+                return 1
+            }
+        else
+            echo "Image $BOOT_IMG missing."
+            return 1
+        fi
+    fi
+
+    for CONF in /boot/loader/entries/*.conf; do
+        if [ -f "$CONF" ]; then
+            if ! grep -q "$OVERRIDE_IMG" "$CONF"; then
+                sed -i "s|^initrd |initrd /$OVERRIDE_IMG |" "$CONF"
+                echo "Patch applied to $(basename $CONF)"
+            fi
+        fi
+    done
+}
+
+remove_patch() {
+    for CONF in /boot/loader/entries/*.conf; do
+        if [ -f "$CONF" ]; then
+            if grep -q "$OVERRIDE_IMG" "$CONF"; then
+                sed -i "s|/$OVERRIDE_IMG ||" "$CONF"
+                echo "Patch removed from $(basename $CONF)"
+            fi
+        fi
+    done
+    
+    # Remove the boot image file
+    if [ -f "$BOOT_IMG" ]; then
+        rm -f "$BOOT_IMG"
+        echo "Boot image removed: $BOOT_IMG"
+    fi
+}
+
+case "${1:-patch}" in
+    patch)
+        apply_patch
+        ;;
+    clean)
+        remove_patch
+        ;;
+    status)
+        echo "ACPI Patch Status:"
+        echo "================="
+        
+        # Check boot image
+        if [ -f "$BOOT_IMG" ]; then
+            echo "✓ Boot image present: $BOOT_IMG"
+        else
+            echo "✗ Boot image missing: $BOOT_IMG"
+        fi
+        
+        # Check entries
+        patched_count=0
+        total_count=0
+        for CONF in /boot/loader/entries/*.conf; do
+            if [ -f "$CONF" ]; then
+                total_count=$((total_count + 1))
+                if grep -q "$OVERRIDE_IMG" "$CONF"; then
+                    patched_count=$((patched_count + 1))
+                fi
+            fi
+        done
+        
+        if [ $total_count -gt 0 ]; then
+            echo "Boot entries: $patched_count/$total_count patched"
+        else
+            echo "No boot entries found"
+        fi
+        ;;
+    *)
+        echo "Usage: acpi-yoga-fix {patch|clean|status}"
+        exit 1
+        ;;
+esac

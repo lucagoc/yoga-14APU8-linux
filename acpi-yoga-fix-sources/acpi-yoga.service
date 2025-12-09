@@ -1,0 +1,14 @@
+[Unit]
+Description=ACPI Boot Patch Manager
+RequiresMountsFor=/boot
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+ExecStop=/usr/bin/acpi-yoga-fix patch
+TimeoutSec=30
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
