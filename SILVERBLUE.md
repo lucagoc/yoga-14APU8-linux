@@ -34,16 +34,19 @@ You should see something like :
 [    0.003464] ACPI: Table Upgrade: override [SSDT-LENOVO-    UPEP]
 ```
 
-The script come with a tiny CLI to manage the ACPI override, you can check the available options with :
+Suspend should now work properly.
 
-```bash
-acpi-yoga-fix help
-```
-
-By default, the service `acpi-yoga` will check if the ACPI override is applied at each shutdown/reboot, and will re-apply it if not. You can disable this behavior with :
-```bash
-sudo systemctl disable acpi-yoga.service
-```
+> The script come with a tiny CLI to manage the ACPI override, you can check the available options with :
+>
+>```bash
+>acpi-yoga-fix help
+>```
+>
+>By default, the service `acpi-yoga` will check if the ACPI override is applied at each shutdown/reboot, and will re-apply it if not. You can disable this behavior with :
+>
+>```bash
+>sudo systemctl disable acpi-yoga.service
+>```
 
 ## Fixing Sound
 
@@ -54,3 +57,14 @@ rpm-ostree install RPMs/cfw_ti2781-1.0-1.x86_64.rpm
 ```
 
 Reboot your system to apply changes.
+
+## Hide Grub Boot Menu
+
+Not related to hardware fixes, but if you want to hide the grub boot menu at startup, create a file in `/boot/grub2/user.cfg` with the following content:
+
+```bash
+set timeout=0
+set timeout_style=hidden
+```
+
+> **Note**: If you need to access the grub menu in the future, hold the `Shift` key while booting or press `Esc` key repeatedly.
