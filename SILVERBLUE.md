@@ -16,7 +16,13 @@ Install the ACPI override package to get suspend working properly:
 rpm-ostree install RPMs/acpi-yoga-fix-2.0-1.noarch.rpm
 ```
 
-Reboot your system to apply, then reboot again, and check if the ACPI tables have been applied correctly with :
+Reboot your system to apply package, enable the service
+
+```bash
+sudo systemctl enable acpi-yoga.service
+```
+
+Then reboot again, and reboot again (yes 2 times !), and now check if the ACPI tables have been applied correctly with :
 
 ```bash
 sudo dmesg | grep ACPI | grep "Table Upgrade"
