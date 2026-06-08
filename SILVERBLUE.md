@@ -8,6 +8,8 @@ Silverblue is an immutable variant of Fedora Workstation. This guide will help y
 
 Because of Silverblue's immutability, everything will be done using `rpm-ostree` to install packages and overlays to modify system files.
 
+> For some reason, it seems that the camera is not working on Silverblue. If this is an important feature for you, please use another distro (such as Archlinux).
+
 ## Fixing Suspend
 
 Install the ACPI override package to get suspend working properly:

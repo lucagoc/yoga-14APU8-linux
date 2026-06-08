@@ -42,3 +42,17 @@ Then reboot your system.
 ## Power profiles
 
 On an Arch installation don't forget to install `power-profiles-daemon` to get control over power profiles.
+
+## Enable the IR emitter
+
+Install the AUR package `linux-enable-ir-emitter`
+
+```bash
+paru -S linux-enable-ir-emitter
+```
+
+Then run the configuration wizard and follow the instructions:
+
+```bash
+sudo linux-enable-ir-emitter configure --no-gui
+```
